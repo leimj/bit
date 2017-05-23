@@ -95,6 +95,100 @@ SpringContextHolder.getBean(SystemService.class);作用
 【web.xml】
 3、以静态变量保存Spring ApplicationContext, 可在任何代码任何地方任何时候中取出ApplicaitonContext.
 
+@Transactional(readOnly = false)
+--
+oracle 只读事宜 与 没有事务
+http://www.baba.io/article/66384.html
+概念：从这一点设置的时间点开始（时间点a）到这个事务结束的过程中，其他事务所提交的数据
+
+，该事务将看不见！（查询中不会出现别人在时间点a之后提交的数据）
+ 
+应用场合：
+如果你一次执行单条查询语句，则没有必要启用事务支持，数据库默认支持SQL执行期间的读一致
+
+性； 
+如果你一次执行多条查询语句，例如统计查询，报表查询，在这种场景下，多条查询SQL必须保证
+
+整体的读一致性，否则，在前条SQL查询之后，后条SQL查询之前，数据被其他用户改变，则该次
+
+整体的统计查询将会出现读数据不一致的状态，此时，应该启用事务支持。
+【注意是一次执行多次查询来统计某些信息，这时为了保证数据整体的一致性，要用只读事务】
+
+
+StringEscapeUtils类的转义与反转义方法
+--
+http://www.cnblogs.com/luoruiyuan/p/6025925.html
+1.HTML
+
+转义
+
+1
+System.out.println(StringEscapeUtils.escapeHtml4("<div></div>"));
+输出：&lt;div&gt;&lt;/div&gt;
+
+反转义
+
+1
+System.out.println(StringEscapeUtils.unescapeHtml4("<div></div>"));
+输出：<div></div>
+
+
+
+
+getBytes()
+--
+http://blog.sina.com.cn/s/blog_6d3fcc7e0101a4pn.html
+String的getBytes()方法是得到一个系统默认的编码格式的字节数组
+getBytes("utf-8")  得到一个UTF-8格式的字节数组
+把String转换成bytes，各种编码转换成的bytes不同，比如UTF-8每个汉字转成3bytes，而GBK转
+
+成2bytes，所以要说明编码方式，否则用缺省编码。
+
+
+fmt:formatDate
+--
+<fmt:formatDate>标签用于使用不同的方式格式化日期。
+<fmt:formatDate
+  value="<string>"
+  type="<string>"
+  dateStyle="<string>"
+  timeStyle="<string>"
+  pattern="<string>"
+  timeZone="<string>"
+  var="<string>"
+  scope="<string>"/>
+附：http://www.runoob.com/jsp/jstl-format-formatdate-tag.html
+
+
+
+My97DatePicker用法 
+--
+<input id="d11" type="text" onClick="WdatePicker()"/>
+
+
+validate jquery 用法
+--
+http://www.cnblogs.com/hejunrex/archive/2011/11/17/2252193.html
+
+
+Spring注解@Component、@Repository、@Service、@Controller区别
+--
+http://blog.csdn.net/zhang854429783/article/details/6785574
+
+spring getBean
+--
+getBean是用来获取applicationContext.xml文件里bean的
+
+
+
+@ModelAttribute
+--
+http://blog.csdn.net/li_xiao_ming/article/details/8349115
+
+
+
+
+
 
 
 
