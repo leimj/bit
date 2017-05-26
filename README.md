@@ -227,6 +227,110 @@ SpringContextHolder 静态持有SpringContext的引用
 
 类。
 
+java Class<?> clazz
+--
+Class 类的实例表示正在运行的 Java 应用程序中的类和接口。枚举是一种类，注释是一种接口
+
+。每个数组属于被映射为 Class 对象的一个类，所有具有相同元素类型和维数的数组都共享该 
+
+Class 对象。基本的 Java 类型（boolean、byte、char、short、int、long、float 和 double
+
+）和关键字 void 也表示为 Class 对象。
+
+
+
+元素据
+--
+元数据就是用来定义数据的数据
+
+
+@Target 注解
+--
+Annotation（注解）就是Java提供了一种元程序中的元素关联任何信息和着任何元数据
+
+（metadata）的途径和方法。
+http://www.cnblogs.com/peida/archive/2013/04/23/3036035.html
+http://www.cnblogs.com/olmlo/p/3566778.html
+http://www.cnblogs.com/peida/archive/2013/04/26/3038503.html
+
+
+jsr303 validator
+--
+https://www.ibm.com/developerworks/cn/java/j-lo-jsr303/index.html
+
+
+FIFO 、LRU、LFU三种算法
+--
+提到缓存，有两点是必须要考虑的：
+（1）缓存数据和目标数据的一致性问题。
+（2）缓存的过期策略（机制）。
+     其中，缓存的过期策略涉及淘汰算法。常用的淘汰算法有下面几种：
+（1）FIFO：First In First Out，先进先出
+（2）LRU：Least Recently Used，最近最少使用
+（3）LFU：Least Frequently Used，最不经常使用
+      注意LRU和LFU的区别。LFU算法是根据在一段时间里数据项被使用的次数选择出最少使用的
+
+数据项，即根据使用次数的差异来决定。而LRU是根据使用时间的差异来决定的。
+        一个优秀的缓存框架必须实现以上的所有缓存机制。例如：Ehcache就实现了上面的所有
+
+策略。
+
+
+ehcache 页面缓存
+--
+这样说吧，几乎所有的网站的首页都是访问率最高的，而首页上的数据来源又是非常广泛的，大
+
+多数来自不同的对象，而且有可能来自不同的db ，所以给首页做缓存是很必要的。那么主页的缓
+
+存策略应该怎样设计呢？我认为应该是某个固定时间之内不变的，比如说2分钟更新一次。那么这
+
+个缓存应该做在什么地方呢？让我们来看一下，当前我们的的应用的结构一般是是page-filter-
+
+action-service-dao-db ，这个过程中的- 的地方都是可以做缓存的地方，根据页面缓存的特征
+
+，应该把页面缓存做到尽量靠近客户的地方，就是在page 和filter 之间，这样的优点就是第一
+
+个用户请求之后，页面被缓存，第二个用户再来请求的时候，走到filter 这个请求就结束了，无
+
+需再走后面的action-service-dao-db 。带来的好处是服务器压力的减低和客户段页面响应速度
+
+的加快。了解了这些之后我们开始介绍重点。
+http://www.cnblogs.com/jianjianyang/p/4953157.html
+
+
+javacompiler
+--
+javax.tools 包是一种添加到 Java SE 6 的标准 API，可以实现 Java 源代码编译，使您能够添
+
+加动态功能来扩展静态应用程序。
+
+
+JAXB注解使用
+--
+http://www.cnblogs.com/fragranting/archive/2012/03/25/xml--jaxb.html
+
+
+dozer
+--
+Dozer 是一个对象转换工具。
+http://blog.csdn.net/caolaosanahnu/article/details/7928183
+
+
+POJO
+--
+POJO的内在含义是指那些没有从任何类继承、也没有实现任何接口，更没有被其它框架侵入的
+
+java对象。
+
+
+@Aspect 注解
+--
+@AspectJ注解使用AspectJ切点表达式语法进行切点定义，可以通过切点函数、运算符、通配符等
+
+高级功能进行切点定义，拥有强大的连接点描述能力。
+http://blog.csdn.net/zcywell/article/details/7174746
+
+
 
 
 
