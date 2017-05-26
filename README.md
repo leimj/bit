@@ -197,6 +197,35 @@ mongodb,hbase等)、搜索引擎（如lucene）等技术来做查询，关系数
 
 方式也是基于读写分离架构。
 
+唯一性约束 AK
+--
+数据库:唯一性约束 
+
+    所谓唯一性约束（unique constraint）不过是数据表内替代键的另一个名称而已。替代键（
+
+alternate key）可以是数据表内不作为主键的其他任何列，只要该键对该数据表唯一即可。换句
+
+话说，在唯一列内不允许出现数据重复的现象。比方说，你可以用车辆识别代号（VIN）作为汽车
+
+（Automobile）数据表的替代键，在汽车数据表里，主键是汽车识别号（Automobile 
+
+Identification），这是一种由系统自动生成的ID。你可以在汽车表内对VIN施加唯一性约束，同
+
+时再创建一个需要VIN的表。在这个新表内可以声明外键指向汽车表。这样，只要汽车表内有VIN
+
+输入数据库就会检验VIN输入结果。这就是保证数据库内数据完整性的另一种有效的措施。 
+
+http://www.cnblogs.com/Jaryleely/archive/2010/02/08/1665856.html
+
+
+REST详解
+--
+
+SpringContextHolder 静态持有SpringContext的引用
+--
+该工具类主要用于：那些没有归入spring框架管理的类却要调用spring容器中的bean提供的工具
+
+类。
 
 
 
