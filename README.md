@@ -330,6 +330,16 @@ java对象。
 高级功能进行切点定义，拥有强大的连接点描述能力。
 http://blog.csdn.net/zcywell/article/details/7174746
 
+线程安全的理解
+--
+
+String与StringBuilder与StringBuffer
+--
+
+jsr303验证  能不能对字段进行选择性验证？
+--
+http:/www.cnblogs.com/best/p/5709680.html
+
 
 
 
