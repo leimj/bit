@@ -341,7 +341,21 @@ jsr303验证  能不能对字段进行选择性验证？
 http:/www.cnblogs.com/best/p/5709680.html
 
 
+Eclipse调试：F5、F6、F7、F8
+--
+F5：跳入方法
+F6：向下逐行调试
+F7：跳出方法
+F8：直接跳转到下一个断点
 
+
+
+对excel的基本操作 
+--
+jxl：最基本的excel api 
+poi：也是基本api，读取2M文件的时候没有jxl效率高，优点是能保持Excel里原有的宏（但不能
+
+用它写新的宏）。
 
 
 
