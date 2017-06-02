@@ -358,6 +358,50 @@ poi：也是基本api，读取2M文件的时候没有jxl效率高，优点是能
 用它写新的宏）。
 
 
+getFields()和getDeclaredFields（）  
+--
+getFields()获得某个类的所有的公共（public）的字段，包括父类。 
+
+getDeclaredFields()获得某个类的所有申明的字段，即包括public、private和proteced，
+但是不包括父类的申明字段。 
+
+同样类似的还有getConstructors()和getDeclaredConstructors()，
+getMethods()和getDeclaredMethods()。
+
+
+java使用省略号代替多参数
+--
+编译器会在背地里把这最后一个形参转化为一个数组形参，并在编译出的class文件里作上一个记
+
+号，表明这是个实参个数可变的方法。
+
+会导致编译错误的组合
+private static int sumUp(int... values) {
+}
+private static int sumUp(int[] values) {
+}
+http://vipjy2008.blog.163.com/blog/static/372087672013820103236147/
+
+
+
+
+Collections.sort()
+--
+Collections.sort(list,new Comparator<Test>(){
+			public int compare(Test o1, Test o2) {
+				return o1.getOrder().compareTo(o2.getOrder());
+			}
+		});
+
+前者代码结构简单，但是只能根据固定的属性排序，后者灵活，可以临时指定排序项，但是代码
+
+不够简洁
+
+http://www.blogjava.net/landor2004/articles/sort.html
+
+
+
+
 
 
 
