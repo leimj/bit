@@ -400,6 +400,12 @@ Collections.sort(list,new Comparator<Test>(){
 http://www.blogjava.net/landor2004/articles/sort.html
 
 
+eclipse清除项目所有断点
+--
+run-->remove all breakpoints
+
+
+
 
 
 
