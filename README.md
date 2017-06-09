@@ -405,6 +405,44 @@ eclipse清除项目所有断点
 run-->remove all breakpoints
 
 
+Class.newInstance()与new的区别
+--
+newInstance: 弱类型。低效率。只能调用无参构造。 
+new: 强类型。相对高效。能调用任何public构造
+但是使用newInstance时候，就必须保证：
+1、这个类已经加载；
+2、这个类已经连接了。
+http://blog.csdn.net/panda1234lee/article/details/9009719
+
+
+java中Class对象理解
+--
+---静态的参数初始化---
+testForName---class TestClassType
+testTypeClass---class TestClassType
+----非静态的参数初始化---
+----构造函数---
+testGetClass---class TestClassType
+ 
+根据结果可以发现，三种生成的Class对象一样的。并且三种生成Class对象只打印一次“静态的
+
+参数初始化”。 
+我们知道，静态的方法属性初始化，是在加载类的时候初始化。而非静态方法属性初始化，是new
+
+类实例对象的时候加载。
+因此，这段程序说明，三种方式生成Class对象，其实只有一个Class对象。在生成Class对象的时
+
+候，首先判断内存中是否已经加载。
+所以，生成Class对象的过程其实是如此的：
+当我们编写一个新的Java类时,JVM就会帮我们编译成class对象,存放在同名的.class文件中。在
+
+运行时，当需要生成这个类的对象，JVM就会检查此类是否已经装载内存中。若是没有装载，则把
+
+.class文件装入到内存中。若是装载，则根据class文件生成实例对象。
+http://blog.csdn.net/yuebinghaoyuan/article/details/7244123
+
+
+
 
 
 
