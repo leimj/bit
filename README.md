@@ -458,6 +458,11 @@ Class：必选项。任意已定义的对象类。
 http://blog.csdn.net/liranke/article/details/5574791
 
 
+mysql转oracle
+--
+使用PowerDesigner进行转换
+
+
 
 
 
