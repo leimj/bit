@@ -408,64 +408,30 @@ run-->remove all breakpoints
 Class.newInstance()与new的区别
 --
 newInstance: 弱类型。低效率。只能调用无参构造。 
-new: 强类型。相对高效。能调用任何public构造
-但是使用newInstance时候，就必须保证：
-1、这个类已经加载；
-2、这个类已经连接了。
-http://blog.csdn.net/panda1234lee/article/details/9009719
+new: 强类型。相对高
 
-
-java中Class对象理解
+Java的native方法
 --
----静态的参数初始化---
-testForName---class TestClassType
-testTypeClass---class TestClassType
-----非静态的参数初始化---
-----构造函数---
-testGetClass---class TestClassType
- 
-根据结果可以发现，三种生成的Class对象一样的。并且三种生成Class对象只打印一次“静态的
-
-参数初始化”。 
-我们知道，静态的方法属性初始化，是在加载类的时候初始化。而非静态方法属性初始化，是new
-
-类实例对象的时候加载。
-因此，这段程序说明，三种方式生成Class对象，其实只有一个Class对象。在生成Class对象的时
-
-候，首先判断内存中是否已经加载。
-所以，生成Class对象的过程其实是如此的：
-当我们编写一个新的Java类时,JVM就会帮我们编译成class对象,存放在同名的.class文件中。在
-
-运行时，当需要生成这个类的对象，JVM就会检查此类是否已经装载内存中。若是没有装载，则把
-
-.class文件装入到内存中。若是装载，则根据class文件生成实例对象。
-http://blog.csdn.net/yuebinghaoyuan/article/details/7244123
+简单地讲，一个Native Method就是一个java调用非java代码的接口
 
 
-java中instanceof用法
+java实现多线程
 --
-Java 中的instanceof 运算符是用来在运行时指出对象是否是特定类的一个实例。instanceof通过返回一个布尔值来指出，这个对象是否是这个特定类或者是它的子类的一个实例。
-用法：
-result = object instanceof class
-参数：
-Result：布尔类型。
-Object：必选项。任意对象表达式。
-Class：必选项。任意已定义的对象类。
-说明：
-如果 object 是 class 的一个实例，则 instanceof 运算符返回 true。如果 object 不是指定
+1、继承Thread类
+继承Thread类的方法尽管被我列为一种多线程实现方式，但Thread本质上也是实现了Runnable接口的一个实例，它代表一个线程的实例，并且，启动线程的唯一方法就是通过Thread类的start()实例方法
+MyThread MyThread = new MyThread();
+MyThread MyThread2 = new MyThread();
+MyThread.start();
+MyThread2.start();
+2、实现Runnable接口方式实现多线程
+如果自己的类已经extends另一个类，就无法直接extends Thread，此时，必须实现一个Runnable接口
+MyRunnable mr = new MyRunnable();
+Thread t = new Thread(mr);
+//启动
+         t.start();
+3、使用ExecutorService、Callable、Future实现有返回结果的多线程
 
-类的一个实例，或者 object 是 null，则返回 false。
-http://blog.csdn.net/liranke/article/details/5574791
 
-
-mysql转oracle
+eclipse同时编辑多行
 --
-使用PowerDesigner进行转换
-
-
-
-
-
-
-
-
+alt+shift+a
