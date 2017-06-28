@@ -435,3 +435,29 @@ Thread t = new Thread(mr);
 eclipse同时编辑多行
 --
 alt+shift+a
+
+
+world格式刷快捷键
+--
+ctrl+shift+c ctrl+shift+v
+
+
+数据库设计三范式
+--
+第一范式
+   1、每一列属性都是不可再分的属性值，确保每一列的原子性
+   2、两列的属性相近或相似或一样，尽量合并属性一样的列，确保不产生冗余数据。
+第二范式
+每一行的数据只能与其中一列相关，即一行数据只做一件事。只要数据列中出现数据重复，就要
+
+把表拆分开来。
+第三范式
+数据不能存在传递关系，即没个属性都跟主键有直接关系而不是间接关系。
+
+
+给scott账户解锁
+--
+1、alter user scott account unlock;
+2、select username,account_status from dba_users;
+3、alter user scott identified by tiger;
+
