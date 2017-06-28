@@ -461,3 +461,39 @@ ctrl+shift+c ctrl+shift+v
 2、select username,account_status from dba_users;
 3、alter user scott identified by tiger;
 
+项目不能添加到tomcat7中或者Cannot change version of project facet Dynamic web module 
+
+to 2.5
+--
+1、navigator目录
+2、org.eclipse.wst.common.project.facet.core.xml中修改<installed facet="jst.web" 
+
+version="2.5"/>
+
+
+
+dynamic web module和对应的TOMCAT 版本 
+--
+大致因为java的web系统有多种类型，比如静态的和动态的，然后动态的java web project要设置
+
+dynamic web module，也就是动态网页模型，他必须要喝对应的服务器搭配好了才能跑
+dynamic web module 2.4  对应Tomcat 5.5
+dynamic web module 2.5  对应Tomcat 6.0
+dynamic web module 3.0 对应Tomcat 7.0
+
+Tomcat version 5.5 only supports J2EE 1.2, 1.3, 1.4 Web modules
+Tomcat version 6.0 only supports J2EE 1.2, 1.3, 1.4, and Java EE 5 Web modules
+
+
+不同版本(2.3,2.4,2.5,3.0)的Servlet web.xml 头信息
+--
+http://blog.csdn.net/z69183787/article/details/36008097
+
+
+tomcat project与dynamic web project的区别是什么
+--
+Web Project是通过使用myeclipse来创建
+Dynamic Web Project通过使用Eclipse来创建项目
+Tomcat Project需要安装tomcat项目插件来创建
+
+
