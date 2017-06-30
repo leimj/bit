@@ -496,4 +496,24 @@ Web Project是通过使用myeclipse来创建
 Dynamic Web Project通过使用Eclipse来创建项目
 Tomcat Project需要安装tomcat项目插件来创建
 
+eclipse -->project-->clean作用
+--
+将工程中的.class文件删除，同时重新编译工程(Java文件)
+
+eclipse中字母大小写转换快捷键
+--
+ctrl+shift+x   转为大写     ctrl+shift+y   转为小写
+
+模式、表空间
+--
+什么是模式？
+数据库中的模式指的就是schema。可以在不同模式下创建相同表名，访问表对象时使用模式名.表
+
+对象，对于不指明模式的表对象以当前登录用户模式作为隐含模式访问。
+什么是表空间？
+表空间是实际的数据存储的地方。一个数据库schema可能存在于多个表空间，相似地，一个表空
+
+间也可以为多个schema服务。
+
+
 
