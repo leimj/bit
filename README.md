@@ -515,5 +515,83 @@ ctrl+shift+x   转为大写     ctrl+shift+y   转为小写
 
 间也可以为多个schema服务。
 
+Class.forName 与 xxx.class 区别
+--
+都会返回Class引用，
+Class.forName方法发现某个类还没被加载，就会主动去加载这个类，在加载过程中，该类的是
 
+static子句将会被执行
+但是这种形式创建Class对象引用时，不会自动初始化Class对象
+http://blog.csdn.net/terminator2015/article/details/52123388
+
+
+
+JSR 303 - Bean Validation 介绍及最佳实践
+--
+https://www.ibm.com/developerworks/cn/java/j-lo-jsr303/index.html
+
+
+java.lang.UnsupportedOperationException
+--
+在使用Arrays.asList()后调用add，remove这些method时出现
+
+Java.lang.UnsupportedOperationException异常
+http://blog.csdn.net/uohzoaix/article/details/7396662
+
+
+taskCandidateUser与taskAssignee区别
+--
+https://segmentfault.com/a/1190000005924648
+
+
+页面缓存SimplePageCachingFilter
+--
+页面缓存主要用Filter过滤器对请求的url进行过滤，如果该url在缓存中出现。那么页面数据就
+
+从缓存对象中获取，并以gzip压缩后返回。其速度是没有压缩缓存时速度的3-5倍，效率相当之高
+
+！其中页面缓存的过滤器有CachingFilter，一般要扩展filter或是自定义Filter都继承该
+
+CachingFilter
+http://www.cnblogs.com/daxin/archive/2013/05/31/3111597.html
+http://www.cnblogs.com/ctxsdhy/p/6421032.html
+
+
+ehcache原理
+--
+http://www.cnblogs.com/duanxz/p/4370403.html
+http://blog.sina.com.cn/s/blog_4adc4b090102vh1s.html
+
+
+Terracotta的基本原理
+--
+Terracotta的基本原理是对于集群间共享的数据，当在一个节点发生变化的时候，Terracotta只
+
+把变化的部分发送给Terracotta服 务器，然后由服务器把它转发给真正需要这个数据的节点。这
+
+样对网络的压力就非常小，各个节点也不必浪费CPU时间和内存进行大量的序列化操作。把这种集
+
+群 间数据共享的机制应用在session同步上，相当于对tomcat第二种集群实现机制进行了优化，
+
+既避免了对数据库的依赖，又能达到负载均衡和灾难恢复 的效果
+http://blog.csdn.net/lima01/article/details/4379572
+
+
+分布式（集群）与集群的联系与区别
+--
+分布式（集群）与集群的联系与区别 
+分布式是指将不同的业务分布在不同的地方。 
+而集群指的是将几台服务器集中在一起，实现同一业务。 
+分布式中的每一个节点，都可以做集群。 
+而集群并不一定就是分布式的。 
+举例：就比如新浪网，访问的人多了，他可以做一个群集，前面放一个响应服务器，后面几台服
+
+务器完成同一业务，如果有业务访问的时候，响应服务器看哪台服务器的负载不是很重，就将给
+
+哪一台去完成。 
+而分布式，从窄意上理解，也跟集群差不多， 但是它的组织比较松散，不像集群，有一个组织性
+
+，一台服务器垮了，其它的服务器可以顶上来。 
+分布式的每一个节点，都完成不同的业务，一个节点垮了，哪这个业务就不可访问了
+http://blog.csdn.net/bluishglc/article/details/5483162
 
