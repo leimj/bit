@@ -595,3 +595,9 @@ http://blog.csdn.net/lima01/article/details/4379572
 分布式的每一个节点，都完成不同的业务，一个节点垮了，哪这个业务就不可访问了
 http://blog.csdn.net/bluishglc/article/details/5483162
 
+
+apache-commons-stringutil的常用使用方法
+--
+http://www.alonely.com.cn/Apache/20160816/10302.html
+
+
