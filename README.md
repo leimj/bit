@@ -600,4 +600,151 @@ apache-commons-stringutil的常用使用方法
 --
 http://www.alonely.com.cn/Apache/20160816/10302.html
 
+uri耗时日志
+--
+1、spring-mvc.xml中配置拦截器
+<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="${adminPath}/**" />
+			<mvc:exclude-mapping path="${adminPath}/"/>
+			<mvc:exclude-mapping path="${adminPath}/login"/>
+			<mvc:exclude-mapping path="${adminPath}/sys/menu/tree"/>
+			<mvc:exclude-mapping path="${adminPath}/sys/menu/treeData"/>
+			<mvc:exclude-mapping 
+
+path="${adminPath}/oa/oaNotify/self/count"/>
+			<bean 
+
+class="com.coreland.modules.sys.interceptor.LogInterceptor" />
+		</mvc:interceptor>
+		<!-- 手机视图拦截器 
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean 
+
+class="com.coreland.modules.sys.interceptor.MobileInterceptor" />
+		</mvc:interceptor>
+		-->
+	</mvc:interceptors>
+2、日志拦截
+public class LogInterceptor extends BaseService implements HandlerInterceptor {
+@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse 
+
+response, 
+			Object handler) throws Exception {
+		if (logger.isDebugEnabled()){
+			long beginTime = System.currentTimeMillis();//1、开始时间  
+	        startTimeThreadLocal.set(beginTime);		//线程绑定变量（该数
+
+据只有当前请求的线程可见）  
+	        logger.debug("开始计时: {}  URI: {}", new SimpleDateFormat
+
+("hh:mm:ss.SSS")
+	        	.format(beginTime), request.getRequestURI());
+		}
+		return true;
+	}
+@Override
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse 
+
+response, 
+			Object handler, Exception ex) throws Exception {
+
+		// 保存日志
+		LogUtils.saveLog(request, handler, ex, null);
+		
+		// 打印JVM信息。
+		if (logger.isDebugEnabled()){
+			long beginTime = startTimeThreadLocal.get();//得到线程绑定的
+
+局部变量（开始时间）  
+			long endTime = System.currentTimeMillis(); 	//2、结束时间 
+
+ 
+	        logger.debug("计时结束：{}  耗时：{}  URI: {}  最大内存: {}m  已分配
+
+内存: {}m  已分配内存中的剩余空间: {}m  最大可用内存: {}m",
+	        		new SimpleDateFormat("hh:mm:ss.SSS").format(endTime), 
+
+DateUtils.formatDateTime(endTime - beginTime),
+					request.getRequestURI(), Runtime.getRuntime
+
+().maxMemory()/1024/1024, Runtime.getRuntime().totalMemory()/1024/1024, 
+
+Runtime.getRuntime().freeMemory()/1024/1024, 
+					(Runtime.getRuntime().maxMemory()-
+
+Runtime.getRuntime().totalMemory()+Runtime.getRuntime().freeMemory())/1024/1024); 
+	        //删除线程变量中的数据，防止内存泄漏
+	        startTimeThreadLocal.remove();
+		}
+		
+	}
+
+
+web.xml文件的作用
+--
+1、指定欢迎页面
+2、命名与定制URL
+3、定制初始化参数
+4、指定错误处理页面
+5、设置过滤器：比如设置一个编码过滤器，过滤所有资源 
+6、设置监听器
+7、设置会话(Session)过期时间，其中时间以分钟为单位，假如设置60分钟超时
+http://www.cnblogs.com/yqskj/articles/2233061.html
+http://www.cnblogs.com/chinafine/archive/2010/09/02/1815980.html
+
+
+Spring MVC DispatcherServlet详解
+--
+https://www.tianmaying.com/tutorial/spring-mvc-DispatcherServlet
+
+
+Java Servlet 技术简介
+--
+https://www.ibm.com/developerworks/cn/education/java/j-intserv/j-intserv.html
+
+
+Servlet 工作原理解析
+--
+http://www.oschina.net/question/12_16372
+
+
+java web 发展历史
+--
+http://blog.csdn.net/javaeeteacher/article/details/6478450
+
+
+一位10年Java工作经验的架构师聊Java和工作经验
+--
+http://blog.csdn.net/lifuxiangcaohui/article/details/48342315
+
+
+六大设计原则
+--
+1. 单一职责原则（Single Responsibility Principle - SRP）
+2. 开放封闭原则（Open Closed Principle - OCP）
+3. 里氏替换原则（Liskov Substitution Principle - LSP）
+4. 最少知识原则（Least Knowledge Principle - LKP）
+5. 接口隔离原则（Interface Segregation Principle - ISP）
+6. 依赖倒置原则（Dependence Inversion Principle - DIP）
+补充设计原则
+--
+1. 组合/聚合复用原则（Composition/Aggregation Reuse Principle - CARP）
+2. 无环依赖原则（Acyclic Dependencies Principle - ADP）
+3. 共同封装原则（Common Closure Principle - CCP）
+4. 共同重用原则（Common Reuse Principle - CRP）
+5. 好莱坞原则（Hollywood Principle - HP）
+其他设计原则
+--
+1. 不要重复你自己（Don't repeat yourself - DRY）
+2. 保持它简单与傻瓜（Keep it simple and stupid - KISS）
+3. 高内聚与低耦合（High Cohesion and Low Coupling - HCLC）
+4. 惯例优于配置（Convention over Configuration - COC）
+5. 命令查询分离（Command Query Separation - CQS）
+6. 关注点分离（Separation of Concerns - SOC）
+7. 契约式设计（Design by Contract - DBC）
+8. 你不需要它（You aren't gonna need it - YAGNI）
+
 
